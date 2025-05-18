@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example-service
+  template:
+    metadata:
+      labels:
+        app: example-service
+    spec:
+      containers:
+      - name: example
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+          name: http
+        volumeMounts:
+        - name: shared-nfs
+          mountPath: /usr/share/nginx/html
+          subPath: example-data
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+      volumes:
+      - name: shared-nfs
+        persistentVolumeClaim:
+          claimName: shared-nfs-claim
