@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: example-service-ingress
+  labels:
+    app: example-service
+    access: ingress
+spec:
+  selector:
+    app: example-service
+  ports:
+  - port: 80
+    targetPort: http
+    name: http
+  type: ClusterIP  # ClusterIP is sufficient for ingress

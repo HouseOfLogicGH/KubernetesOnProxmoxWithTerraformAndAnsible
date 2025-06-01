@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: shared-nfs-pv
+spec:
+  capacity:
+    storage: 50Gi  # Total capacity of your NFS share
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: nfs-storage
+  nfs:
+    server: 192.168.5.210  # Your NFS server IP
+    path: "/volume1/k8snfs" #"/exports/k8s-data"  # Main export path on your NFS server
