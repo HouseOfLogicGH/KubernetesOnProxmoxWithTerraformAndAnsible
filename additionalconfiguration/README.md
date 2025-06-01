@@ -7,6 +7,8 @@ You may now be wondering what you can do with it and specifically how to connect
 
 The initial configuration steps can be found [here](https://github.com/HouseOfLogicGH/KubernetesOnProxmoxWithTerraformAndAnsible/blob/main/README.md).
 
+A YouTube video demonstrating these steps can be found [here](https://youtu.be/OtnX6kDUxII).
+
 ## NFS for Local Persistent Data Storage 
 
 NFS gives you a simple way of storing data that can be accessed by Kubernetes that is persistent.
